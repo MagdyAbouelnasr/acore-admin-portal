@@ -9,13 +9,15 @@ import { Book } from './models/books.model';
 })
 export class AppComponent implements OnInit {
 
+  canShow = false;
+
   constructor(){
     // const books: Book[]=this.dataStorageService.fetchBooks();
     // this.bookService.setBooks(books);
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
   title = 'acore-admin-portal';
 

@@ -39,6 +39,7 @@ export class AuthComponent implements OnInit {
       email: '',
       password: ''
     }
+    this.router.navigate(['home']);
   }
 
 }
