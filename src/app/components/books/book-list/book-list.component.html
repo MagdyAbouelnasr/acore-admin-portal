@@ -1,0 +1,41 @@
+
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Book Title</th>
+        <td mat-cell *matCellDef="let element">{{element.title}}</td>
+      </ng-container>
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Book Category</th>
+        <td mat-cell *matCellDef="let element">{{element.category}}</td>
+      </ng-container>
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef>Book Author</th>
+        <td mat-cell *matCellDef="let element">{{element.author}}</td>
+      </ng-container>
+      <ng-container matColumnDef="isbn">
+        <th mat-header-cell *matHeaderCellDef>Book ISBN</th>
+        <td mat-cell *matCellDef="let element">{{element.isbn}}</td>
+      </ng-container>
+      <ng-container matColumnDef="version">
+        <th mat-header-cell *matHeaderCellDef>Book Version</th>
+        <td mat-cell *matCellDef="let element">{{element.version}}</td>
+      </ng-container>
+      <ng-container matColumnDef="Actions" >
+        <th mat-header-cell *matHeaderCellDef style="text-align: right;">Actions</th>
+        <td mat-cell *matCellDef="let element" style="text-align: right;">
+
+          <button mat-raised-button (click)="PreviewBookDetail(element)" ><mat-icon [ngStyle]="{'color':'blue'}" >remove_red_eye</mat-icon></button>
+          <button mat-raised-button (click)="PreviewBookEdit(element)"><mat-icon [ngStyle]="{'color':'green'}">edit</mat-icon></button>
+          <button mat-raised-button (click)="DeleteBook(element)"><mat-icon [ngStyle]="{'color':'red'}">delete</mat-icon></button>
+
+        </td>
+      </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+    </table>
+    <br>
+    <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>

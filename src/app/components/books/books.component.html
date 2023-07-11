@@ -1,0 +1,24 @@
+<div class="container-fluid page ">
+  <div class="page__box">Books</div>
+  <span class="main_header_actions">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Search For Book</mat-label>
+        <input matInput (keyup)="FilterChange($event)" placeholder="Search For Book" />
+        <mat-icon
+          matSuffix
+          color="primary"
+          matTooltip="search by book title name or book author name"
+          matTooltipPosition="below"
+          >search</mat-icon
+        >
+      </mat-form-field>
+
+    <div class="page__button btn btn-primary" (click)="PreviewBookAdd()"><mat-icon>add</mat-icon>Add Book</div>
+  </span>
+  <div class="page__content shadow  position-relative">
+    <div class="page__content-data position-absolute text-center">
+     <app-book-list [filterBy]="filterValue"></app-book-list>
+    </div>
+  </div>
+</div>

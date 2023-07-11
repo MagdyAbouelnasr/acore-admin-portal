@@ -1,0 +1,133 @@
+<div class="container-fluid page">
+  <div class="page__box">{{ this.populated ? 'Edit Book' : 'Add Book'}}</div>
+  <div class="page__content shadow position-relative">
+    <div class="page__content-data position-absolute text-center">
+      <div class="p-5">
+      <form (ngSubmit)="saveBook(frm)" name="form" #frm="ngForm" class="needs-validation">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="bookTitle" name="bookTitle" placeholder="Book Title *"
+                required [(ngModel)]="book.title" #bookTitle="ngModel">
+              <div *ngIf="frm.submitted && bookTitle.invalid" class="text-danger h6">
+                Book Title is required.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="bookAuthor" name="bookAuthor" placeholder="Book Author *"
+                required [(ngModel)]="book.author" #bookAuthor="ngModel">
+              <div *ngIf="frm.submitted && bookAuthor.invalid" class="text-danger h6">
+                Book Author is required.
+              </div>
+            </div>
+
+               <div class="form-group">
+                <select class="form-control" id="bookCategory" name="bookCategory" required [ngModel]="book.category" #bookCategory="ngModel"
+                  (ngModelChange)="book.category = $event" >
+                  <option selected>Category...</option>
+                  <option value="1">Novel</option>
+                  <option value="2">Comedy</option>
+                  <option value="3">Drama</option>
+                </select>
+                <div *ngIf="frm.submitted && bookCategory.invalid" class="text-danger h6">
+                  Book Category is required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="number" class="form-control" id="bookPrice" name="bookPrice" placeholder="Book Price *"
+                  required [(ngModel)]="book.price" step="0.01" #bookPrice="ngModel">
+                  <div *ngIf="frm.submitted && bookPrice.invalid" class="text-danger h6 ">
+                    Book Price is required.
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="bookVersion" name="bookVersion" placeholder="Book Version *"
+                  required [ngModel]="book.version" #bookVersion="ngModel" (ngModelChange)="book.version = $event">
+                <div *ngIf="frm.submitted && bookVersion.invalid" class="text-danger h6 ">
+                  Book Version is required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <select class="form-control" id="bookOlderVersion" name="bookOlderVersion" [(ngModel)]="book.olderVersion">
+                  <option selected>Version...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="bookEdition" name="bookEdition" placeholder="Book Edition"
+                  [(ngModel)]="book.edition">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" id="bookISBN" name="bookISBN" placeholder="Book ISBN *"
+                  required [(ngModel)]="book.isbn" #bookISBN="ngModel">
+                <div *ngIf="frm.submitted && bookISBN.invalid" class="text-danger h6 ">
+                  Book ISBN is required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="date" class="form-control" id="bookReleaseDate" name="bookReleaseDate"
+                  placeholder="Book Release Date" [(ngModel)]="book.releaseDate">
+              </div>
+
+
+              <!-- Add more fields for the first section as needed -->
+
+          </div>
+
+          <div class="col-md-6">
+
+            <div class="form-group">
+              <input type="file" class="form-control" id="bookCoverPhoto" name="bookCoverPhoto" accept="image/*"
+                required style="display: none;" (change)="handleCoverPhotoChange($event)" #imageInput>
+                <div class="image-preview" *ngIf="selectedImage">
+                  <img [src]="selectedImage" alt="Selected Image" width="200">
+                </div>
+              <button class="FilesUploadButton" type="button" (click)="imageInput.click()">Upload Book Cover *</button>
+            </div>
+
+
+
+            <div class="form-group">
+              <input type="file" class="form-control" id="bookPdf" name="bookPdf" accept=".pdf" required style="display: none;"
+                (change)="handleFileChange($event)" #fileInput>
+
+              <button class="FilesUploadButton" type="button" (click)="fileInput.click()">Upload Book *</button>
+
+              <div *ngIf="isFileUploaded" class="file-upload-success h6">
+                File uploaded successfully!
+              </div>
+            </div>
+
+
+              <div class="form-group">
+                <textarea class="form-control" id="bookBrief" name="bookBrief" placeholder="Book Brief *"
+                  required [(ngModel)]="book.brief" maxlength="800"></textarea>
+                <div *ngIf="frm.submitted && frm.controls['bookBrief']?.invalid" class="text-danger h6">
+                  Book Brief is required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <!-- <input type="submit" value="Save" class="btn btn-primary mr-2"> -->
+                <button type="submit" value="Save" class="btn btn-primary mr-2">{{this.populated ? 'Edit Book' : 'Add Book'}}</button>
+                <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+              </div>
+              <!-- Add more fields for the second section as needed -->
+
+          </div>
+        </div>
+
+      </form>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<mat-nav-list>
+  <div class="logo py-4">
+    <img mat-card-sm-image src="../../../assets/acore-image.png" alt="ACORE Logo">
+  </div>
+  <mat-divider></mat-divider>
+  <a mat-list-item routerLink="/home" routerLinkActive="list-item-active" [ngClass]="{ 'list-item-active': isActive('/home') }">
+    <mat-icon>library_books</mat-icon> Books
+  </a>
+
+</mat-nav-list>

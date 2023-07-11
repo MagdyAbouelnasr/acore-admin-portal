@@ -1,0 +1,47 @@
+@import '../books.component.scss';
+
+
+.example-card {
+  display: flex;
+  flex-direction: row;
+}
+
+mat-card-title-group {
+  justify-content: flex-start;
+}
+
+.title_info_container:nth-child(1) {
+  display: flex;
+}
+
+.title_info_container:nth-child(3) {
+  display: flex;
+}
+
+.title-group {
+  display: flex;
+  align-items: left;
+}
+
+.title-container {
+  margin-left: 1rem;
+  width: 20%;
+}
+
+span {
+  color: blue;
+}
+
+.add_edit__buttons {
+  border-radius: 10px;
+  max-height: 2.5rem;
+  margin: 1rem;
+}
+
+.page__button {
+  margin: 2px;
+}
+
+.mat-card-actions {
+  justify-content: flex-end;
+}

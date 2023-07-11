@@ -1,0 +1,36 @@
+@import '../../books.component.scss';
+
+.page{
+  
+  &__content{
+    min-height: calc(100vh - 50px);
+    border-radius: 10px;
+    margin-top: 1rem;
+    background: white;
+    color: black;
+    font-size: 2rem;
+      &-data{
+        width: 100%;
+      }
+ }
+}
+
+
+.FilesUploadButton{
+  border-radius: 10px;
+  padding: 2%;
+  font-size: medium;
+  color: red;
+  border-color: red;
+}
+
+.image-preview {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+.file-upload-success {
+  color: green;
+  margin-top: 5px;
+}

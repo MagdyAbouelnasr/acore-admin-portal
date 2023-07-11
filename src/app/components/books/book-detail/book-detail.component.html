@@ -1,0 +1,46 @@
+<div class="container-fluid page">
+  <div class="page__box">Book Details</div>
+  <div class="page__content shadow position-relative">
+    <div class="page__content-data position-absolute text-center">
+      <mat-card class="example-card d-block">
+        <mat-card-header>
+          <mat-card-title-group class="title-group">
+            <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            <div class="title-container">
+              <mat-card-title>{{ selectedBook.title }}</mat-card-title>
+              <div class="row mt-3">
+                <span class="col-md-6 mr-3 ml-3">
+                  <mat-card-title><span>478</span></mat-card-title>
+                  <mat-card-subtitle>Pages</mat-card-subtitle>
+                </span>
+                <span class="">
+                  <mat-card-title><span>20h</span></mat-card-title>
+                  <mat-card-subtitle>To read</mat-card-subtitle>
+                </span>
+              </div>
+            </div>
+
+            <div class="add_edit__buttons ml-auto">
+              <div class="page__button btn btn-danger" (click)="DeleteBook()">Delete</div>
+              <div class="page__button btn btn-primary" (click)="EditBook()">Edit</div>
+            </div>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content class="row" fxLayout="row">
+          <div class="col-sm-6" fxFlex="50%">
+            <mat-card-subtitle>By {{ selectedBook.author }} | {{ selectedBook.releaseDate }}</mat-card-subtitle>
+            <mat-card-subtitle>${{ selectedBook.price }}</mat-card-subtitle>
+            <mat-card-subtitle>ISBN: {{ selectedBook.isbn }}</mat-card-subtitle>
+            <mat-card-subtitle>Version: {{ selectedBook.version }}</mat-card-subtitle>
+            <mat-card-subtitle>{{ selectedBook.category }}</mat-card-subtitle>
+          </div>
+          <div class="col-sm-6" fxFlex="50%">
+            Brief
+            <br>
+            <mat-card-subtitle style="margin-top: 2%;">{{ selectedBook.brief }}</mat-card-subtitle>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

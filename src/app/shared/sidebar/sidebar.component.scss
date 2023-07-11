@@ -1,0 +1,54 @@
+.logo{
+  text-align: center;
+  margin-bottom: 2rem;
+  img{
+    width:200px;
+  }
+}
+
+.mat-icon {
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+
+.mat-divider{
+  border-top-width: 2px;
+  border-color: rgb(0, 0, 0);
+}
+
+.list-item-active {
+  background-color:#bfc0c2;
+
+  position: relative;
+}
+
+.list-item-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background-color: red;
+}
+
+.mat-list-item {
+  display: flex;
+  color: black;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  height: 44px !important;
+  margin-bottom: 4px;
+
+  ::ng-deep {
+    .mat-list-item-content {
+      border-radius: 5px;
+      margin: 0 8px;
+      &:hover {
+        background: #2c3344 !important;
+      }
+    }
+  }
+}
+
